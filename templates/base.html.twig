@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Découvre ma ville{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="icon" type="image/x-icon" href="{{ asset('/img/logo/logo_noir_DMV.ico') }}">
+        {% block stylesheets %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+
+    </head>
+    <body>
+    <header class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg modifications-menu nav-fill p-0" id="haut">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarT"
+                    aria-controls="navbarT" aria-expanded="false" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarT">
+                <a class="navbar-brand m-0 alogo" href="{{ path('index')}}"><img src="{{ asset('img/logo/logo_blanc_DMV.svg') }}" alt="menu hamburger"
+                                                                   class="logo"></a>
+
+                <ul class="navbar-nav d-flex justify-content-around w-100">
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ path('index')}}">Accueil<span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_home_selection')}}">Notre sélection</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_home_visite')}}">Les plus visités</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_home_nous')}}">Notre équipe</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_home_contact')}}">Nous contacter</a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+        {% block body %}{% endblock %}
+
+    </body>
+</html>

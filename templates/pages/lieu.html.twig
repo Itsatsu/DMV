@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ lieuEntier.nom}} : Les infos {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/stylelieu.css') }}">
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <main>
+
+        <div class="bandeau d-flex justify-content-center flex-column align-items-center">
+            <h1 class="text-center">{{ lieuEntier.nom}}</h1>
+            <p>{{ lieuEntier.type}}</p>
+        </div>
+
+        <div class="contenu">
+
+            <div class="row d-flex justify-content-center">
+
+                <div class="col-xl-5 blue bulleimages d-flex justify-content-center ml-0">
+                    <img src="{{ lieuEntier.photo}}" alt="photo {{lieuEntier.nom}}" width="500px" class="img-fluid">
+                </div>
+                <div class="col-xl-1"></div>
+                <div class="col-xl-5 blue bulle mr-0">
+                    <h2>Description</h2>
+                    <p>{{ lieuEntier.description}}</p>
+                </div>
+
+            </div>
+
+            <div class="row  d-flex justify-content-center">
+
+                <div class="col-xl-5 d-flex flex-wrap justify-content-between m-0 p-0">
+                    <div class=" col-lg-3 col-md-5 col-sm-5 col-12 bulle white w-25 ml-0">
+                        <h3>tarifs</h3>
+                        <p>{{ lieuEntier.prix}}</p>
+                    </div>
+
+                    <div class=" col-lg-4 col-md-5 col-sm-5 col-12 bulle blue w-25">
+                        <h3>Horaires</h3>
+                        <p>{{ lieuEntier.horaires}}</p>
+                    </div>
+
+
+                    <div class=" col-lg-3 col-md-5 col-sm-5 col-12 bulle white w-25">
+                        <h3>Adresse</h3>
+                        <p>{{ lieuEntier.adresse}}</p>
+                    </div>
+                    <div class="  col-lg-3 col-md-5 col-sm-5 col-12 bulle blue w-25 ml-0">
+                        <h3>Transports </h3>
+                        <p>{{ lieuEntier.transport}}</p>
+                    </div>
+
+
+                    <div class=" col-lg-4 col-md-5 col-sm-5 col-12 bulle white w-25">
+                        <h3>Evenements</h3>
+                        <p>{{ lieuEntier.evenement}}</p>
+                    </div>
+
+                    <div class=" col-lg-3 col-md-5 col-sm-5 col-12 bulle blue w-25">
+                        <h3>Site internet</h3>
+                        <a href="{{ lieuEntier.SiteInternet}}" target="_blank">Accéder au site</a>
+                    </div>
+                </div>
+
+                <div class="col-xl-1"></div>
+                <div class="col-xl-5 bulleimages blue d-flex justify-content-center mr-0">
+                    <iframe src="{{ lieuEntier.LienMaps }}" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+
+    </main>
+{% endblock body %}

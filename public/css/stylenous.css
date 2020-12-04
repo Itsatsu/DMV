@@ -1,0 +1,46 @@
+
+.personne {
+border-radius: 10px;
+background-color: white;
+width: 60%;
+}
+
+@media screen and (max-width: 1200px) {
+    .personne {
+        width: 90%;
+        }
+}
+
+@media screen and (max-width: 576px) {
+    .photopersonne {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    .iconelinkedin {
+        width : 25px;
+        height: 25px;
+    }
+
+}
+
+@media screen and (min-width: 576px) {
+    .photopersonne {
+        width: 20%;
+        height: 20%;
+        border-radius: 50%;
+    }    
+    .iconelinkedin {
+        width : 4%;
+        height: 4%;
+    }
+}
+
+
+
+
+
+
+.bleu {
+    background-color: #33AAFF;
+}

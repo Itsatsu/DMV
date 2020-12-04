@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+{% block title %}Notre équipe{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/stylenous.css') }}">
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <main>
+
+        <div class="bandeau d-flex justify-content-center flex-column align-items-center">
+            <h1>Notre équipe</h1>
+            <p>Découvre les membres de notre projet</p>
+        </div>
+
+        <section class="troispersonnes d-flex flex-column">
+            <div class="personne m-4 p-3 ">
+                <div class="d-flex flex-md-row flex-column justify-content-between">
+                    <img src="{{ asset('img/nous/photopersonne.jpg') }}" alt="" class="photopersonne m-2">
+                    <div class="textepersonne">
+                        <h2 class="m-2">Eric Gigondan</h2>
+                        <p class="m-2">Je m'appelle Eric Gigondan, j'ai 21 ans. Je suis passioné par l'informatique depuis maintenant presque 10 ans.
+                            Accro aux nouvelles technologies et à tout ce qui les entoures. Avec de nombreux petits projets et des formations,
+                            je m'intéresse aux ordinateurs, aux serveurs et surtout à leur fonctionnement, à leur mise en réseaux et depuis 2016 au développement web.
+                        </p>
+                        <a href="https://www.eric-gigondan.fr" target="_blank">
+                            Mon protfolio:
+                            <img style="width: 40px;height: 40px;" src="{{ asset('img/nous/logo-eric.svg') }}" alt="logolinkedin">
+                        </a>
+                    </div>
+                     <a class="iconelinkedin p-0 " href="https://www.linkedin.com/in/eric-gigondan-2120a6171/" style="height:40px;width: 40px;" >
+                    <img style="width: 40px;height: 40px;" src="{{ asset('img/nous/linkedin-icon.svg') }}" alt="logolinkedin">
+                     </a>
+                </div>
+
+
+            </div>
+
+            <div class="personne align-self-xl-end m-4 p-3 bleu">
+                <div class="d-flex flex-md-row flex-column justify-content-between">
+                    <img src="{{ asset('img/nous/photopersonne.jpg') }}" alt="" class="photopersonne m-2 ">
+                    <div class="textepersonne">
+                        <h2 class="m-2">Tiphaine Imbert</h2>
+                        <p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consequatur nobis excepturi soluta quidem eos obcaecati, delectus provident voluptas dicta a deserunt repellat nostrum, eius nemo illo ipsam tempore totam praesentium est rerum aliquid nisi. Architecto beatae corporis laboriosam provident, labore pariatur distinctio deserunt hic?</p>
+                    </div>
+                    <a class="iconelinkedin p-0 " href="https://www.linkedin.com/in/tiphaine-imbert-18b0b414a/" style="height:40px;width: 40px;" >
+                        <img style="width: 40px;height: 40px;" src="{{ asset('img/nous/linkedin-icon.svg') }}" alt="logolinkedin">
+                    </a>
+
+                </div>
+
+
+            </div>
+
+            <div class="personne m-4 p-3">
+                <div class="d-flex flex-md-row flex-column justify-content-between">
+                    <img src="{{ asset('img/nous/photopersonne.jpg') }}" alt="" class="photopersonne m-2">
+                    <div class="textepersonne">
+                        <h2 class="m-2">Florian Miot</h2>
+                        <p class="m-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consequatur nobis excepturi soluta quidem eos obcaecati, delectus provident voluptas dicta a deserunt repellat nostrum, eius nemo illo ipsam tempore totam praesentium est rerum aliquid nisi. Architecto beatae corporis laboriosam provident, labore pariatur distinctio deserunt hic?</p>
+                    </div>
+                    <a class="iconelinkedin p-0 " href="https://www.linkedin.com/in/florian-miot-073178b8/" style="height:40px;width: 40px;" >
+                        <img style="width: 40px;height: 40px;" src="{{ asset('img/nous/linkedin-icon.svg') }}" alt="logolinkedin">
+                    </a>
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+
+
+    </main>
+{% endblock body %}

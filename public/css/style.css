@@ -1,0 +1,94 @@
+
+
+                    /*          NAV             */
+.modifications-menu {
+    background-color: #5C7184;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+}
+.alogo{
+    padding-left: 20px;
+}
+
+/* Couleur sur le bouton hamb*/
+.navbar-toggler {
+    border-color: #33aaff;
+}
+
+/* Couleur sur les span hamb*/
+.navbar-toggler span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    margin: 6px auto;
+    background: #33aaff;
+    transition: all .6s cubic-bezier(0.250, 0.100, 0.250, 1.000);
+}
+
+/* rotate span 1 */
+.navbar-toggler[aria-expanded="true"] span:first-of-type {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+/* hide span 2 */
+.navbar-toggler[aria-expanded="true"] span:nth-of-type(2) {
+    opacity: 0;
+}
+
+/* rotate span 3 */
+.navbar-toggler[aria-expanded="true"] span:last-of-type {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.navbar-toggler[aria-expanded="false"] span {
+    transform: none;
+    opacity: 1;
+}
+
+.modifications-menu a {
+    color: white;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+a:hover{
+    color: white !important;
+    text-decoration: none !important;
+}.bandeau{
+     background-color: #33aaff;
+     color: white;
+     line-height: 5px;
+ }
+
+
+                    /*          MAIN             */
+                    @media screen and(max-width: 768px) {
+                        .bandeau{
+                            height: 100px;
+                        }
+                    }
+                    @media screen and (min-width: 769px) and (max-width: 992px) {
+                        .bandeau{
+                            height: 90px;
+                        }
+                    }
+                    @media screen and (min-width: 993px) and (max-width: 1200px) {
+                        .bandeau{
+                            height: 80px;
+                        }
+                    }
+                    @media screen and (min-width: 1201px) {
+                        .bandeau{
+                            height: 70px;
+                        }
+                    }
+
+
+body{
+    background-color: #cfd7de;
+}

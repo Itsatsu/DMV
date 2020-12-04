@@ -1,0 +1,138 @@
+/*   CSS CAROUSSEL    */
+.col-md-3{
+  display: inline-block;
+  margin-left:-4px;
+}
+.col-md-3 img{
+  width:100%;
+  height:180px;
+}
+.col-md-3 img:hover{
+  border: 1px solid blue;
+}
+body .carousel-indicators li{
+  background-color:rgba(255, 0, 0, 0.2);;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+  background-color :red;
+}
+body .no-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+#demo{
+  padding-top: 30px;
+}
+a:hover{
+  text-decoration: none;
+}
+
+/*   CSS   MAIN   */
+#ligneSeparation{
+  display: block;
+  background-color: black;
+  width: 80%;
+  height: 5px;
+  margin-top: 20px;
+  margin-left: 10%;
+  border-radius: 5px 5px 5px 5px;
+}
+.fondBleu{
+  background-color:  #33aaff;
+  margin-top: 25px;
+
+}
+.fondBleu:nth-child(odd){
+  background-color:grey;
+}
+.col-md-3 #imgTaille{
+  margin: 8px;
+  padding-left: 5px ;
+  max-height: 157px;
+  max-width: 250px;
+  height: 96%;
+  width: 100%;
+}
+#textCentrer{
+  text-align: center;
+  color: white;
+  padding-top: 20px;
+}
+#carte{
+  margin-top: 8px;
+  margin-left:0px;
+  padding-right: 15px;
+  padding-bottom: 8px;
+}
+/*CSS APPARITION DES ELEMENTS */
+.slideIn{
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+.slideIn:nth-child(1){
+  animation-delay: 0s;
+}
+.slideIn:nth-child(2){
+  animation-delay: 0.2s;
+}
+.slideIn:nth-child(3){
+  animation-delay: 0.4s;
+}
+.slideIn:nth-child(4){
+  animation-delay: 0.6s;
+}
+.slideIn:nth-child(5){
+  animation-delay: 0.8s;
+}
+.slideIn:nth-child(6){
+  animation-delay: 1s;
+}
+@keyframes slidein{
+  0%{
+    opacity: 0;
+    margin-left : 100%;
+  }
+  25%{
+    opacity: 0;
+    
+  }
+  100%{
+    opacity: 1;
+  }
+}
+/* CSS BOUTON RETOUR EN HAUT DE PAGE */
+a#cRetour{
+  border-radius:3px;
+  padding:10px;
+  font-size:15px;
+  text-align:center;
+  color:#fff;
+  background:rgba(0, 0, 0, 0.25);
+  position:fixed;
+  right:20px;
+  opacity:1;
+  z-index:99999;
+  transition:all ease-in 0.2s;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  text-decoration: none;
+}
+a#cRetour:before{ content: "\25b2"; }
+a#cRetour:hover{
+  background:rgba(0, 0, 0, 1);
+  transition:all ease-in 0.2s;
+}
+a#cRetour.cInvisible{
+  bottom:-35px;
+  opacity:0;
+  transition:all ease-in 0.5s;
+}
+
+a#cRetour.cVisible{
+  bottom:20px;
+  opacity:1;
+}

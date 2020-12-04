@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ villeHome.nom}} : Les lieux{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/bootsrtapcaroussel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/stylenotreselection.css') }}">
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/scriptnotreselection.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+{% endblock javascripts %}
+
+{% block body %}
+    <main>
+        <div class="bandeau d-flex justify-content-center flex-column align-items-center">
+            <h1>{{villeHome.nom}}</h1>
+            <p>Voici les lieux les plus cool de cette ville!</p>
+        </div>
+        <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="container carousel-inner no-padding">
+
+                <div class="carousel-item active">
+
+                    {% for lieu in lieux %}
+                        {% if loop.index0 > 2 and  loop.index0 <7 %}
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <a href="#image{{ lieu.id }}"><img src="{{ lieu.photo }}" data-toggle="tooltip" alt="photo {{ lieu.nom }}" title="{{ lieu.nom }}" data-placement="top" data-animation="true"></a>
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
+                </div>
+
+                <div class="carousel-item">
+                    {% for lieu in lieux %}
+                        {% if loop.index0 > 6 and  loop.index0 <11%}
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <a href="#image{{ lieu.id }}"><img src="{{ lieu.photo }}" data-toggle="tooltip" alt="photo {{ lieu.nom }}" title="{{ lieu.nom }}" data-placement="top" data-animation="true"></a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+                <div class="carousel-item">
+                    {% for lieu in lieux %}
+                        {% if loop.index0 > 10 and  loop.index0 <15 %}
+                            <div class="col-xs-3 col-sm-3 col-md-3">
+                                <a href="#image{{ lieu.id }}"><img src="{{ lieu.photo }}" data-toggle="tooltip" alt="photo {{ lieu.nom }} "title="{{ lieu.nom }}" data-placement="top" data-animation="true"></a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+        </div>
+
+        <!--Ligne de separation-->
+        <div id="ligneSeparation"></div>
+        <div class=" container">
+        <h2> Recherches par type :</h2>
+        </div>
+        <div class=" container d-flex flex-row justify-content-between flex-wrap">
+            <div class="d-flex flex-column ">
+
+
+                <div>
+                    <label for="checkMusee">Musées : </label>
+                     <input type="checkbox" id="checkMusee"  onclick="checkMusee()" checked>
+                </div>
+                <div>
+            <label for="checkPatrimoine">Patrimoine : </label>
+            <input type="checkbox" id="checkPatrimoine" onclick="checkPatrimoine()" checked>
+                </div>
+            </div>
+
+
+            <div>
+                <div >
+            <label for="checkCulture">Culture : </label>
+            <input type="checkbox" id="checkCulture" onclick="checkCulture()" checked>
+                </div>
+                <div>
+            <label for="checkShopping">Shopping : </label>
+            <input type="checkbox" id="checkShopping"  onclick="checkShopping()" checked>
+                </div>
+            </div>
+
+
+            <div>
+                <div>
+            <label for="checkParcs">Parcs : </label>
+            <input type="checkbox" id="checkParcs" onclick="checkParcs()" checked>
+                </div>
+                <div>
+            <label for="checkLoisirs">Loisirs : </label>
+            <input type="checkbox" id="checkLoisirs" onclick="checkLoisirs()" checked>
+                </div>
+            </div>
+
+
+            <div>
+                <div>
+            <label for="checkSite-naturel">Sites naturel : </label>
+            <input type="checkbox" id="checkSite-naturel" onclick="checkSiteNaturel()" checked>
+                </div>
+                <div>
+            <label for="checkGastronomie">Gastronomie : </label>
+            <input type="checkbox" id="checkGastronomie" onclick="checkGastronomie()" checked>
+                </div>
+            </div>
+        </div>
+
+
+        <!--Renseignement sur les villes (Image/Descritpion/Map)-->
+        <div class="container">
+            {% for lieu in lieux %}
+
+                <div  class=" {{ lieu.type }} slideIn fondBleu" id="">
+                    <a  href="{{path('app_home_lieu',{ id: lieu.codePostal ,ville: lieu.villeReferente, lieu: lieu.nom }) }}">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-xs-3 col-sm-3 col-md-3 d-flex justify-content-center" id="image{{lieu.id}}">
+                                <img src="{{lieu.photo}}" alt="photo {{ lieu.nom }}" id="imgTaille" height="100%">
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6" id="textCentrer">
+                                <h2>{{lieu.nom}}</h2>
+                                <p>{{ lieu.description }}</p>
+                            </div>
+                            <div class="col-xs-3 col-sm-3 col-md-3" id="carte">
+                                <iframe  src="{{ lieu.lienMaps }}" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+
+            {% endfor %}
+        </div>
+        <div><a id="cRetour" class="cInvisible" href="#haut"></a></div>
+    </main>
+{% endblock body %}
