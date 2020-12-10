@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+{% block title %}Notre équipe{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/stylecontact.css') }}">
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <main>
+
+        <div class="bandeau d-flex justify-content-center flex-column align-items-center">
+            <h1>Administrateur</h1>
+            <p>Effectuez des modifications</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="rectangleformulaire">
+                {{ form_start(form) }}
+                <div>
+                    <h4 class="text-center">Modifier un lieu</h4>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div>
+                            <label for="nomLieu">Nom : </label>
+                            {{ form_widget(form.nom, {'attr':{'value': lieu.nom }} ) }}
+
+                        </div>
+                        <div>
+                            <label for="descriptionLieu">Description du lieu : </label>
+                            {{ form_widget(form.description, {'attr':{'value': lieu.description }} ) }}
+                        </div>
+                        <div>
+                            <label for="typeLieu">Type : </label>
+                            {{ form_widget(form.type, {'attr':{'value': lieu.type }} ) }}
+                        </div>
+                        <div>
+                            <label for="prixLieu">Tarif : </label>
+                            {{ form_widget(form.prix, {'attr':{'value': lieu.prix }} ) }}
+                        </div>
+                        <div>
+                            <label for="horairesLieu">Horaires : </label>
+                            {{ form_widget(form.horaires, {'attr':{'value': lieu.horaires }} ) }}
+                        </div>
+                        <div>
+                            <label for="adresseLieu">Adresse : </label>
+                            {{ form_widget(form.adresse, {'attr':{'value': lieu.adresse }} ) }}
+                        </div>
+                        <div>
+                            <label for="transportLieu">Transports : </label>
+                            {{ form_widget(form.transport, {'attr':{'value': lieu.transport }} ) }}
+                        </div>
+
+                        <div>
+                            <label for="visiteLieu">Les plus visités : </label>
+                            {{ form_widget(form.plus_visite,{'attr':{ 'checked': lieu.plusVisite}} ) }}
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div>
+                            <label for="codepostalLieu">Code postal : </label>
+                            {{ form_widget(form.code_postal, {'attr':{'value': lieu.codePostal }} ) }}
+                        </div>
+                        <div>
+                            <label for="villerefLieu">Ville référente : </label>
+                            {{ form_widget(form.VilleReferente, {'attr':{'value': lieu.VilleReferente }} ) }}
+                        </div>
+
+                        <div>
+                            <label for="evenementLieu">Evenement : </label>
+                            {{ form_widget(form.evenement, {'attr':{'value': lieu.evenement }} ) }}
+                        </div>
+                        <div>
+                            <label for="photoLieu">Photo : </label>
+                            {{ form_widget(form.photo, {'attr':{'value': lieu.photo }} ) }}
+                        </div>
+                        <div>
+                            <label for="siteLieu">Site internet : </label>
+                            {{ form_widget(form.site_internet, {'attr':{'value': lieu.siteInternet }} ) }}
+                        </div>
+                        <div>
+                            <label for="mapsLieu">Lien Maps : </label>
+                            {{ form_widget(form.lien_maps, {'attr':{'value': lieu.lienMaps }} ) }}
+                        </div>
+                        <div>
+                            <label for="selectionLieu">Notre sélection : </label>
+                            {{ form_widget(form.notre_selection,{'attr':{ 'checked': lieu.notreSelection}} ) }}
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-primary btn-block" type="submit">Modifier</button>
+
+                {{ form_end(form) }}
+
+                <br>
+                <br>
+                <a href="{{path('app_admin_llieu')}}">Retour à la liste</a>
+            </div>
+        </div>
+
+    </main>
+{% endblock body %}

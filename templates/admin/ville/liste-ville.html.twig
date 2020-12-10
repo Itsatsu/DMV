@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des Villes{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/stylecontact.css') }}">
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <main>
+
+        <div class="bandeau d-flex justify-content-center flex-column align-items-center">
+            <h1>Liste des Villes</h1>
+            <p>Effectuez des modifications</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="rectangleadmin">
+
+                    <div>
+                        <h4 class="text-center">Les Villes</h4>
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor%}
+                        {% for message in app.flashes('warning') %}
+                            <div class="alert alert-warning">
+                                {{ message }}
+                            </div>
+                        {% endfor%}
+                        <br>
+                        <div class="d-flex justify-content-between">
+
+                            <a href="{{ path('app_admin_aville') }}"><button type="button" class="btn btn-outline-primary btn-sm">Ajouter une ville</button></a>
+
+                            <a href="{{path('admin')}}">Retour au dashboard</a>
+
+                        </div>
+                    </div>
+                <br>
+
+                <div class="row justify-content-between">
+                <h4>Nom de la ville : </h4>
+
+                <div>
+                    <h4>Action : </h4>
+                </div>
+            </div>
+            <br>
+            <br>
+                {% for ville in villes %}
+                    <div class="row justify-content-between">
+                        <p>{{ville.nom}}</p>
+                        <div>
+                            <a href="{{ path('app_admin_mville', {id: ville.id }) }}"><button type="button" class="btn btn-outline-primary btn-sm">Modifier</button></a>
+                            <a href="{{ path('app_admin_dville', {id: ville.id }) }}"><button type="button" class="btn btn-outline-danger btn-sm">Supprimer</button></a>
+                        </div>
+                    </div>
+                    <hr>
+                {% endfor %}
+                <br>
+                <br>
+
+
+
+
+
+            </div>
+        </div>
+
+    </main>
+{% endblock body %}

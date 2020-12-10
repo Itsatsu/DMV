@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block title %}Dashboard administration{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/stylecontact.css') }}">
+    <style>
+        hr{
+            border: 2px solid grey;
+        }
+    </style>
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <main>
+
+    <div class="bandeau d-flex justify-content-center flex-column align-items-center">
+        <h1>Dashboard administration</h1>
+        <p>Effectuez des modifications</p>
+    </div>
+    <div class="d-flex justify-content-center">
+        <div class="rectangleadmin">
+
+                <div>
+                    <h4 class="text-center">Administration</h4>
+                </div>
+                <br>
+
+
+
+                <a href="{{ path('app_admin_llieu')}}">Afficher la liste des lieux</a>
+            <hr>
+
+
+            <br>
+                    <a href="{{ path('app_admin_lvilles')}}">Afficher la liste des villes</a>
+            <hr>
+
+
+
+
+            <br>
+                    <a href="{{ path('app_admin_ladmin')}}">Afficher la liste des administrateurs</a>
+            <hr>
+            <br>
+            <a href="{{ path('app_logout')}}"><button type="button" class="btn btn-outline-danger btn-sm">Déconnexion de l'espace administrateur</button></a>
+            <hr>
+
+
+
+        </div>
+    </div>
+
+    </main>
+{% endblock body %}

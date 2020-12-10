@@ -102,7 +102,7 @@ class Ville
 
     public function setLienMaps(string $lien_maps): self
     {
-        $this->lienmaps = $lien_maps;
+        $this->lien_maps = $lien_maps;
 
         return $this;
     }

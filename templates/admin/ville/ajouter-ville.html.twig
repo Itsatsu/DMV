@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block title %}Ajouter une ville{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/stylecontact.css') }}">
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <main>
+
+        <div class="bandeau d-flex justify-content-center flex-column align-items-center">
+            <h1>Administrateur</h1>
+            <p>Effectuez des modifications</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="rectangleformulaire">
+                {{ form_start(form) }}
+                <div>
+                    <h4 class="text-center">Modifier une ville</h4>
+                </div>
+                <br>
+
+                <div>
+                    <label for="nomVille">Nom : </label>
+                    {{ form_widget(form.nom ) }}
+
+                </div>
+                <div>
+                    <label for="codepostalVille">Code postal : </label>
+                    {{ form_widget(form.code_postal ) }}
+
+                </div>
+                <div>
+                    <label for="descriptionVille">Description de la ville : </label>
+                    {{ form_widget(form.description ) }}
+
+                </div>
+                <div>
+                    <label for="photoVille">Photo : </label>
+                    {{ form_widget(form.img ) }}
+                </div>
+                <div>
+                    <label for="mapsLieu">Lien Maps : </label>
+                    {{ form_widget(form.lien_maps ) }}
+
+                </div>
+
+
+                <br>
+                <button class="btn btn-primary btn-block" type="submit">Ajouter</button>
+
+                {{ form_end(form) }}
+                <br>
+                <br>
+                <a href="{{path('app_admin_lvilles')}}">Retour à la liste</a>
+
+            </div>
+        </div>
+
+    </main>
+{% endblock body %}

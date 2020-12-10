@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des administrateurs{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/stylecontact.css') }}">
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <main>
+
+        <div class="bandeau d-flex justify-content-center flex-column align-items-center">
+            <h1>Liste des administrateurs</h1>
+            <p>Effectuez des modifications</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="rectangleadmin">
+
+                    <div>
+                        <h4 class="text-center">Les administrateurs</h4>
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor%}
+                        {% for message in app.flashes('warning') %}
+                            <div class="alert alert-warning">
+                                {{ message }}
+                            </div>
+                        {% endfor%}
+                        <br>
+                        <div class="d-flex justify-content-between">
+
+                            <a href="{{ path('app_admin_aadmin') }}"><button type="button" class="btn btn-outline-primary btn-sm">Ajouter un administrateur</button></a>
+
+                            <a href="{{path('admin')}}">Retour au dashboard</a>
+
+                        </div>
+                    </div>
+                <br>
+
+                {% for admin in listeadmins %}
+                <div class="row justify-content-between">
+                    <p>{{ admin.identifiant }}</p>
+                    <div>
+                        <a href="{{ path('app_admin_madmin', {id: admin.id }) }}"><button type="button" class="btn btn-outline-primary btn-sm">Modifier</button></a>
+                        <a href="{{ path('app_admin_dadmin', {id: admin.id }) }}"><button type="button" class="btn btn-outline-danger btn-sm">Supprimer</button></a>
+                    </div>
+                    </div>
+                {% endfor %}
+
+                <br>
+                <br>
+            </div>
+        </div>
+
+    </main>
+{% endblock body %}

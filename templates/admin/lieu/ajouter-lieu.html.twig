@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+{% block title %}Notre équipe{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/stylecontact.css') }}">
+{% endblock stylesheets %}
+
+
+{% block body %}
+    <main>
+
+        <div class="bandeau d-flex justify-content-center flex-column align-items-center">
+            <h1>Administrateur</h1>
+            <p>Effectuez des modifications</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="rectangleformulaire">
+                {{ form_start(form) }}
+                <div>
+                    <h4 class="text-center">Ajouter un lieu</h4>
+                </div>
+                <br>
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div>
+                            <label for="nomLieu">Nom : </label>
+                            {{ form_widget(form.nom) }}
+
+                        </div>
+                        <div>
+                            <label for="descriptionLieu">Description du lieu : </label>
+                            {{ form_widget(form.description) }}
+                        </div>
+                        <div>
+                            <label for="typeLieu">Type : </label>
+                            {{ form_widget(form.type) }}
+                        </div>
+                        <div>
+                            <label for="prixLieu">Tarif : </label>
+                            {{ form_widget(form.prix) }}
+                        </div>
+                        <div>
+                            <label for="horairesLieu">Horaires : </label>
+                            {{ form_widget(form.horaires) }}
+                        </div>
+                        <div>
+                            <label for="adresseLieu">Adresse : </label>
+                            {{ form_widget(form.adresse) }}
+                        </div>
+                        <div>
+                            <label for="transportLieu">Transports : </label>
+                            {{ form_widget(form.transport) }}
+                        </div>
+                        <div>
+                            <label for="visiteLieu">Les plus visités : </label>
+                            {{ form_widget(form.plus_visite) }}
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                        <div>
+                            <label for="codepostalLieu">Code postal : </label>
+                            {{ form_widget(form.code_postal) }}
+                        </div>
+                        <div>
+                            <label for="villerefLieu">Ville référente : </label>
+                            {{ form_widget(form.VilleReferente) }}
+                        </div>
+                        <div>
+                            <label for="evenementLieu">Evenement : </label>
+                            {{ form_widget(form.evenement) }}
+                        </div>
+                        <div>
+                            <label for="photoLieu">Photo : </label>
+                            {{ form_widget(form.photo) }}
+                        </div>
+                        <div>
+                            <label for="siteLieu">Site internet : </label>
+                            {{ form_widget(form.site_internet) }}
+                        </div>
+                        <div>
+                            <label for="mapsLieu">Lien Maps : </label>
+                            {{ form_widget(form.lien_maps) }}
+                        </div>
+                        <div>
+                            <label for="selectionLieu">Notre sélection : </label>
+                            {{ form_widget(form.notre_selection) }}
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-primary btn-block" type="submit">Ajouter</button>
+
+                {{ form_end(form) }}
+                <br>
+                <br>
+                <a href="{{path('app_admin_llieu')}}">Retour à la liste</a>
+            </div>
+        </div>
+
+    </main>
+{% endblock body %}

@@ -43,8 +43,6 @@ class HomeController extends AbstractController
     }
 
 
-
-
     /**
      * @Route("/departement-{id}/{ville}")
      */

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}login admin{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/stylecontact.css') }}">
+{% endblock stylesheets %}
+{% block body %}
+<div class="bandeau d-flex justify-content-center flex-column align-items-center">
+    <h1>Administrateur</h1>
+    <p>Effectuez des modifications</p>
+</div>
+<div class="d-flex justify-content-center">
+    <div class="rectangleformulaire">
+<form action="{{ path('app_login') }}" method="post">
+    <div>
+        <h4>Connexion à l'espace administrateur</h4>
+    </div>
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+    <div>
+    <label for="inputEmail">Identifiant :</label>
+    <input type="text" value="{{ last_username }}" name="identifiant" id="inputEmail" class="w-100" required autofocus>
+    </div>
+    <div>
+    <label for="inputPassword">Mot de passe :</label>
+    <input type="password" name="password" id="inputPassword" class="w-100" required>
+    </div>
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    {#
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+ <br>
+    <button class="btn btn-primary btn-block" type="submit">
+        Se connecter
+    </button>
+</form>
+    </div>
+</div>
+{% endblock %}
